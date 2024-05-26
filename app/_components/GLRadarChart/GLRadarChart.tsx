@@ -110,18 +110,18 @@ export default function GLRadarChart(props: RadarChartProps) {
           </button>
         );
       })}
-      <div className={'relative w-[250px] h-[250px]'}>
+      <div className={'relative size-[250px]'}>
         {!loadedRef.current && (
           <>
             <div
               id={'GLRadarChartLoading'}
               style={{ clipPath: createClipPathCSS(6, 0.96), backgroundColor: `rgba(${ loadingStyle.outlineColor.join(',') })` }}
-              className={'top-0 absolute border-1 border-zinc-400 bg-zinc-200 w-full h-full'}
+              className={'absolute top-0 size-full border-zinc-400 bg-zinc-200'}
             />
             <div
               id={'GLRadarChartLoading'}
               style={{ clipPath: createClipPathCSS(6, 0.94), backgroundColor: `rgba(${ loadingStyle.backgroundColor.join(',') })` }}
-              className={'top-0 absolute border-1 border-zinc-400 bg-zinc-200 w-full h-full'}
+              className={'absolute top-0 size-full border-zinc-400 bg-zinc-200'}
             />
           </>
         )}
@@ -129,7 +129,7 @@ export default function GLRadarChart(props: RadarChartProps) {
           ref={chartRef}
           width={'1000'}
           height={'1000'}
-          className={'top-0 absolute w-full h-full'}
+          className={'absolute top-0 size-full'}
         />
       </div>
     </div>

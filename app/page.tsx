@@ -11,9 +11,9 @@ export default function Home() {
   const [search, setSearch] = React.useState<string>('');
 
   return (
-    <main className={'flex flex-col items-center p-24 min-h-screen'}>
-      <Link href={'/'} className={`text-zinc-400 text-4xl tracking-tighter ${ ekmukta.className }`}>
-        <div className={'inline-block bg-green-500 clip-hexagon w-3 h-4'} />
+    <main className={'flex min-h-screen flex-col items-center p-24'}>
+      <Link href={'/'} className={`text-4xl tracking-tighter text-zinc-400 ${ ekmukta.className }`}>
+        <div className={'clip-hexagon inline-block h-4 w-3 bg-green-500'} />
         {'Hexa.Loa'}
       </Link>
 
@@ -23,12 +23,12 @@ export default function Home() {
         </div>
       </h2>
 
-      <div className={'flex mt-2'}>
+      <div className={'mt-2 flex'}>
         <input
           onFocus={() => setInputFocused(true)}
           onBlur={() => setInputFocused(false)}
           onChange={(e) => setSearch(e.target.value)}
-          className={'box-border border-zinc-200 bg-zinc-100 p-2 rounded-md ml-2 w-48 h-8 text-[1rem] text-center focus:ring-2 focus:ring-inset placeholder:text-center outline-none ring-green-400'}
+          className={'ml-2 box-border h-8 w-48 rounded-md border-zinc-200 bg-zinc-100 p-2 text-center text-[1rem] outline-none ring-green-400 placeholder:text-center focus:ring-2 focus:ring-inset'}
           placeholder={'닉네임 입력'}
         />
         <Link
