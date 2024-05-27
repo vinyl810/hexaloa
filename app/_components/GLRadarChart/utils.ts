@@ -67,11 +67,11 @@ export const paintGL = (
 
 export const render = (gl: WebGL2RenderingContext, data: Float32Array, vertices: number, chartStyle: RadarChartStyle, rotation?: number, breathe?: number) => {
   const {
-    backgroundColor,
-    lineColor,
-    outlineColor,
-    dataColor,
-    dataOutlineColor,
+    backgroundColor = [0.9, 0.9, 0.9, 1],
+    lineColor = [0.55, 0.55, 0.55, 1],
+    outlineColor = [0.6, 0.6, 0.6, 1],
+    dataColor = [0.4, 0.8, 0.4, 0.75],
+    dataOutlineColor = [0.4, 0.8, 0.4, 0.95],
   } = chartStyle;
 
   const dashCount = 6;

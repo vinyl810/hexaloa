@@ -7,11 +7,18 @@ import Image from 'next/image';
 import { ekmukta } from '@/assets/fonts';
 
 export default function Home() {
+  const linkRef = React.useRef<HTMLAnchorElement>(null);
   const [inputFocused, setInputFocused] = React.useState(false);
   const [search, setSearch] = React.useState<string>('');
 
+  const handleOnKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter' && search) {
+      linkRef.current?.click();
+    }
+  };
+
   return (
-    <main className={'flex min-h-screen flex-col items-center p-24'}>
+    <main className={'flex min-h-screen flex-col items-center py-24'}>
       <Link href={'/'} className={`text-4xl tracking-tighter text-zinc-400 ${ ekmukta.className }`}>
         <div className={'clip-hexagon inline-block h-4 w-3 bg-green-500'} />
         {'Hexa.Loa'}
@@ -25,6 +32,7 @@ export default function Home() {
 
       <div className={'mt-2 flex'}>
         <input
+          onKeyDown={(e) => handleOnKeyDown(e)}
           onFocus={() => setInputFocused(true)}
           onBlur={() => setInputFocused(false)}
           onChange={(e) => setSearch(e.target.value)}
@@ -32,6 +40,7 @@ export default function Home() {
           placeholder={'닉네임 입력'}
         />
         <Link
+          ref={linkRef}
           title={'검색'}
           aria-description={'검색'}
           aria-disabled={search === ''}
